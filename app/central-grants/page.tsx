@@ -22,6 +22,8 @@ const centralGrants = [
     status: "Open",
     applicants: 1250,
   },
+
+
   {
     id: 2,
     title: "MSME Technology Upgradation Scheme",
@@ -265,11 +267,8 @@ export default function CentralGrantsPage() {
 
                   {/* Action Buttons */}
                   <div className="flex gap-2 pt-2">
-                    <Button
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
-                      asChild
-                    >
-                      <Link href={`/apply/${grant.id}`}>Apply Now</Link>
+                    <Button className="flex-1 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700">
+                      Apply Now
                     </Button>
                     <Button variant="outline" size="sm" className="px-3">
                       <ExternalLink className="h-4 w-4" />

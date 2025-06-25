@@ -5,112 +5,106 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  Building2,
-  GraduationCap,
-  Heart,
-  Leaf,
-  Lightbulb,
+  Search,
+  Shield,
   Users,
-  Factory,
-  Home,
-  ChevronRight,
+  TrendingUp,
+  ArrowRight,
+  Star,
   Mail,
   Phone,
   MapPin,
   Menu,
   X,
+  Building2,
+  MapIcon,
+  FileText,
+  Award,
 } from "lucide-react"
 import Link from "next/link"
 
-const centralGrantCategories = [
+const features = [
   {
-    id: "agriculture",
-    title: "Agriculture & Rural Development",
-    description: "Grants for farming, rural infrastructure, and agricultural innovation",
-    icon: Leaf,
-    count: "150+ grants",
+    icon: Search,
+    title: "Smart Search",
+    description: "Find relevant grants quickly with our intelligent search and filtering system",
   },
   {
-    id: "business",
-    title: "Business & Entrepreneurship",
-    description: "Startup funding, MSME support, and business development grants",
-    icon: Building2,
-    count: "200+ grants",
+    icon: Shield,
+    title: "Verified Information",
+    description: "All grant information is verified and updated regularly from official sources",
   },
   {
-    id: "education",
-    title: "Education & Research",
-    description: "Educational institutions, research projects, and skill development",
-    icon: GraduationCap,
-    count: "300+ grants",
-  },
-  {
-    id: "health",
-    title: "Healthcare & Wellness",
-    description: "Medical research, healthcare infrastructure, and public health",
-    icon: Heart,
-    count: "180+ grants",
-  },
-  {
-    id: "science",
-    title: "Science & Technology",
-    description: "R&D projects, innovation labs, and technology development",
-    icon: Lightbulb,
-    count: "120+ grants",
-  },
-  {
-    id: "social",
-    title: "Social Welfare",
-    description: "Community development, NGO support, and social impact projects",
     icon: Users,
-    count: "250+ grants",
+    title: "Expert Support",
+    description: "Get guidance from our team of grant application specialists",
   },
   {
-    id: "infrastructure",
-    title: "Infrastructure & Industry",
-    description: "Industrial development, infrastructure projects, and manufacturing",
-    icon: Factory,
-    count: "90+ grants",
-  },
-  {
-    id: "housing",
-    title: "Housing & Urban Development",
-    description: "Affordable housing, urban planning, and smart city initiatives",
-    icon: Home,
-    count: "110+ grants",
+    icon: TrendingUp,
+    title: "Success Tracking",
+    description: "Monitor your application progress and success rates",
   },
 ]
 
-const stateGrants = [
-  { state: "Andhra Pradesh", contributor: "Priya Sharma", grants: 45 },
-  { state: "Assam", contributor: "Divya Goswami", grants: 32 },
-  { state: "Bihar", contributor: "Rahul Kumar", grants: 28 },
-  { state: "Chhattisgarh", contributor: "Anita Patel", grants: 22 },
-  { state: "Delhi", contributor: "Vikash Singh", grants: 67 },
-  { state: "Gujarat", contributor: "Meera Shah", grants: 54 },
-  { state: "Haryana", contributor: "Suresh Yadav", grants: 38 },
-  { state: "Karnataka", contributor: "Lakshmi Rao", grants: 72 },
-  { state: "Kerala", contributor: "Arjun Nair", grants: 41 },
-  { state: "Madhya Pradesh", contributor: "Pooja Gupta", grants: 35 },
-  { state: "Maharashtra", contributor: "Amit Desai", grants: 89 },
-  { state: "Odisha", contributor: "Sneha Mishra", grants: 29 },
-  { state: "Punjab", contributor: "Harpreet Kaur", grants: 33 },
-  { state: "Rajasthan", contributor: "Kiran Joshi", grants: 42 },
-  { state: "Tamil Nadu", contributor: "Deepa Krishnan", grants: 63 },
-  { state: "Telangana", contributor: "Ravi Reddy", grants: 48 },
-  { state: "Uttar Pradesh", contributor: "Neha Agarwal", grants: 76 },
-  { state: "West Bengal", contributor: "Sourav Das", grants: 51 },
+const stats = [
+  { number: "2,000+", label: "Active Grants", icon: FileText },
+  { number: "28", label: "States Covered", icon: MapIcon },
+  { number: "85%", label: "Success Rate", icon: Award },
+  { number: "50K+", label: "Applications", icon: Users },
+]
+
+const testimonials = [
+  {
+    name: "Priya Sharma",
+    role: "Startup Founder",
+    content:
+      "GrantsIndia helped me secure ₹25 lakhs for my agri-tech startup. The platform made the entire process seamless.",
+    rating: 5,
+  },
+  {
+    name: "Dr. Rajesh Kumar",
+    role: "Research Director",
+    content:
+      "Found the perfect research grant for our healthcare project. The detailed information saved us weeks of research.",
+    rating: 5,
+  },
+  {
+    name: "Meera Patel",
+    role: "NGO Director",
+    content: "The state-wise categorization helped us identify local grants we never knew existed. Highly recommended!",
+    rating: 5,
+  },
+]
+
+const grantCategories = [
+  {
+    title: "Central Government Grants",
+    description: "Access nationwide funding from various ministries and departments",
+    icon: Building2,
+    count: "1,200+",
+    href: "/central-grants",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    title: "State & UT Grants",
+    description: "Discover region-specific funding opportunities",
+    icon: MapIcon,
+    count: "800+",
+    href: "/state-grants",
+    color: "from-emerald-500 to-green-600",
+  },
 ]
 
 export default function HomePage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-green-600">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-green-600 to-emerald-600">
               <span className="text-sm font-bold text-white">G</span>
             </div>
             <span className="text-xl font-bold text-gray-900">GrantsIndia</span>
@@ -134,7 +128,7 @@ export default function HomePage() {
 
           <div className="flex items-center space-x-4">
             <Button
-              className="hidden md:flex bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
+              className="hidden md:flex bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
               asChild
             >
               <Link href="/login">Get Started</Link>
@@ -202,68 +196,102 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-green-50 via-white to-emerald-50">
         <div className="container mx-auto text-center">
           <div className="mx-auto max-w-4xl">
-            <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-200">Discover Government Grants</Badge>
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Find the Perfect Grant for Your{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Project</span>
+            <Badge className="mb-6 bg-green-100 text-green-700 hover:bg-green-200">
+              India's #1 Grant Discovery Platform
+            </Badge>
+            <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+              Discover Government{" "}
+              <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                Grants
+              </span>{" "}
+              Made Simple
             </h1>
-            <p className="mb-8 text-xl text-gray-600 leading-relaxed">
-              Access comprehensive database of Central and State government grants across India. Streamline your funding
-              search with our curated directory of opportunities.
+            <p className="mb-8 text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              Access India's most comprehensive database of government grants. From startups to research institutions,
+              find the perfect funding opportunity for your project with our intelligent matching system.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
+                className="w-full sm:w-auto bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-lg px-8 py-4"
                 asChild
               >
-                <Link href="/login">Get Started Free</Link>
+                <Link href="/login">Start Finding Grants</Link>
               </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-gray-300 hover:bg-gray-50" asChild>
-                <Link href="/login">Explore Grants</Link>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-gray-300 hover:bg-gray-50 text-lg px-8 py-4"
+                asChild
+              >
+                <Link href="/explore">Browse All Grants</Link>
               </Button>
+            </div>
+
+            {/* Quick Access Cards */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {grantCategories.map((category) => {
+                const IconComponent = category.icon
+                return (
+                  <Card
+                    key={category.title}
+                    className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-0 shadow-lg bg-white"
+                    asChild
+                  >
+                    <Link href={category.href}>
+                      <CardHeader className="pb-4">
+                        <div className="flex items-center justify-between mb-4">
+                          <div
+                            className={`flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-r ${category.color} group-hover:scale-110 transition-transform`}
+                          >
+                            <IconComponent className="h-7 w-7 text-white" />
+                          </div>
+                          <ArrowRight className="h-6 w-6 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all" />
+                        </div>
+                        <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">
+                          {category.title}
+                        </CardTitle>
+                        <CardDescription className="text-gray-600 text-base">{category.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <Badge className="bg-gray-100 text-gray-700 font-semibold">
+                          {category.count} grants available
+                        </Badge>
+                      </CardContent>
+                    </Link>
+                  </Card>
+                )
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Central Grants Section */}
-      <section className="py-16 px-4">
+      {/* Stats Section */}
+      <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">Central Government Grants</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Trusted by Thousands</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore grants by category from various Central Government ministries and departments
+              Join the growing community of successful grant recipients across India
             </p>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {centralGrantCategories.map((category) => {
-              const IconComponent = category.icon
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => {
+              const IconComponent = stat.icon
               return (
-                <Card
-                  key={category.id}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-0 shadow-md"
-                >
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-blue-100 to-green-100 group-hover:from-blue-200 group-hover:to-green-200 transition-colors">
-                        <IconComponent className="h-6 w-6 text-blue-600" />
+                <Card key={index} className="text-center border-0 shadow-md bg-white">
+                  <CardContent className="p-8">
+                    <div className="flex justify-center mb-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-green-100 to-emerald-100">
+                        <IconComponent className="h-6 w-6 text-green-600" />
                       </div>
-                      <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
                     </div>
-                    <CardTitle className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {category.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="mb-3 text-gray-600">{category.description}</CardDescription>
-                    <Badge variant="secondary" className="bg-gray-100 text-gray-700">
-                      {category.count}
-                    </Badge>
+                    <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                    <div className="text-gray-600 font-medium">{stat.label}</div>
                   </CardContent>
                 </Card>
               )
@@ -272,36 +300,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* State Grants Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      {/* Features Section */}
+      <section className="py-16 px-4">
         <div className="container mx-auto">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">State & UT Grants</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose GrantsIndia?</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover state-specific funding opportunities curated by our research contributors
+              We make grant discovery and application simple, efficient, and successful
             </p>
           </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon
+              return (
+                <Card key={index} className="text-center border-0 shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-8">
+                    <div className="flex justify-center mb-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-green-100 to-emerald-100">
+                        <IconComponent className="h-6 w-6 text-green-600" />
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {stateGrants.map((state) => (
-              <Card
-                key={state.state}
-                className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-0 shadow-sm bg-white"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                      {state.state}
-                    </h3>
-                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
+      {/* Testimonials Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Hear from entrepreneurs and organizations who found success through our platform
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-md bg-white">
+                <CardContent className="p-8">
+                  <div className="flex mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    ))}
                   </div>
-                  <div className="space-y-2">
-                    <p className="text-sm text-gray-600">
-                      Contributor: <span className="font-medium text-gray-800">{state.contributor}</span>
-                    </p>
-                    <Badge className="bg-green-100 text-green-700 hover:bg-green-200">
-                      {state.grants} grants available
-                    </Badge>
+                  <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-500">{testimonial.role}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -310,21 +360,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <div className="grid gap-8 md:grid-cols-3 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">1,200+</div>
-              <div className="text-gray-600">Total Grants Listed</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">28</div>
-              <div className="text-gray-600">States & UTs Covered</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-purple-600 mb-2">50+</div>
-              <div className="text-gray-600">Government Departments</div>
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-green-600 to-emerald-600">
+        <div className="container mx-auto text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to Find Your Perfect Grant?</h2>
+            <p className="text-xl text-green-100 mb-8">
+              Join thousands of successful applicants who have secured funding through our platform
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-4" asChild>
+                <Link href="/login">Get Started Free</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-green-600 text-lg px-8 py-4"
+                asChild
+              >
+                <Link href="/contact">Contact Support</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -336,13 +391,13 @@ export default function HomePage() {
           <div className="grid gap-8 md:grid-cols-4">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-green-600">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-green-600 to-emerald-600">
                   <span className="text-sm font-bold text-white">G</span>
                 </div>
                 <span className="text-xl font-bold">GrantsIndia</span>
               </div>
               <p className="text-gray-400 mb-4">
-                Your comprehensive guide to government grants and funding opportunities across India.
+                India's most comprehensive platform for discovering and applying to government grants.
               </p>
             </div>
 
@@ -373,7 +428,7 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h3 className="font-semibold mb-4">Categories</h3>
+              <h3 className="font-semibold mb-4">Grant Categories</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <Link href="/central-grants" className="hover:text-white transition-colors">
@@ -386,13 +441,13 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/business" className="hover:text-white transition-colors">
-                    Business
+                  <Link href="/grants/agriculture-rural" className="hover:text-white transition-colors">
+                    Agriculture
                   </Link>
                 </li>
                 <li>
-                  <Link href="/education" className="hover:text-white transition-colors">
-                    Education
+                  <Link href="/grants/business-entrepreneurship" className="hover:text-white transition-colors">
+                    Business
                   </Link>
                 </li>
               </ul>
